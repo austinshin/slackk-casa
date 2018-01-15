@@ -4,7 +4,7 @@ const fs = require('fs');
 
 const client = new Client({
   connectionString: process.env.DATABASE_URL || 'postgresql://austin123:austin123@localhost/slackk',
-  ssl: true,
+  // ssl: true,
 });
 
 client

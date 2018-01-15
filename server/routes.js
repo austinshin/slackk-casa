@@ -97,34 +97,36 @@ router.post('/workspaces', async (req, res) => {
 
 
 // sends an email every ___ to a list of all emails grabbed from the database.
-// const parseEmails = (emailList) => {
-//   let emails = [];
-//   emailList.map(emailObj => {
-//     emails.push(emailObj.email);
-//   });
-//   return emails.join(', ');
-// }
-//
-// new CronJob('* * * * * *', function() {
-//   db.getEmails()
-//   .then(data => {
-//     let emails = parseEmails(data);
-//     console.log(emails);
-//     let mailOptions = {
-//       from : 'slackkcasa@gmail.com',
-//       to: emails,
-//       subject: 'testing',
-//       text: 'test',
-//       html: '<p>test</p>',
-//     };
-//     transporter.sendMail(mailOptions, (error, info) => {
-//       if (error) {
-//         console.error(error);
-//       }
-//     });
-//   })
-//   .catch(err => console.error(err));
-// }, null, true, 'America/Los_Angeles');
+const parseEmails = (emailList) => {
+  let emails = [];
+  emailList.map(emailObj => {
+    emails.push(emailObj.email);
+  });
+  return emails.join(', ');
+}
+
+new CronJob('* * * * * *', function() {
+  // db.getEmails()
+  // .then(data => {
+  //   let emails = parseEmails(data);
+  //   console.log(emails);
+  //   let mailOptions = {
+  //     from : 'slackkcasa@gmail.com',
+  //     to: emails,
+  //     subject: 'testing',
+  //     text: 'test',
+  //     html: '<p>test</p>',
+  //   };
+  //   transporter.sendMail(mailOptions, (error, info) => {
+  //     if (error) {
+  //       console.error(error);
+  //     }
+  //   });
+  // })
+  console.log('test');
+  // })
+  // .catch(err => console.error(err));
+}, null, true, 'America/Los_Angeles');
 
 
 module.exports = router;
